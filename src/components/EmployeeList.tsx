@@ -1,34 +1,42 @@
 import { IEmployee } from "./Employee.type";
 
 type Props = {
-    list: IEmployee[]
-}
+  list: IEmployee[];
+};
 
 const EmployeeList = (props: Props) => {
+  const { list } = props;
+
   return (
     <div>
       EmployeeList page
       <table className="border-collapse w-full">
         <tr>
-          <th className="border-[1px] border-[#dddddd] p-2 text-left">Company</th>
-          <th className="border-[1px] border-[#dddddd] p-2 text-left">Contact</th>
-          <th className="border-[1px] border-[#dddddd] p-2 text-left">Country</th>
+          <th className="border-[1px] border-[#dddddd] p-2 text-left">
+            Name
+          </th>
+          <th className="border-[1px] border-[#dddddd] p-2 text-left">
+            Email
+          </th>
+          <th className="border-[1px] border-[#dddddd] p-2 text-left">
+            Action
+          </th>
         </tr>
-        <tr>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">EJ Company</td>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">egamovj90@gmail</td>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">Uzbekistan</td>
-        </tr>
-        <tr>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">EJ Company</td>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">egamovj90@gmail</td>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">Uzbekistan</td>
-        </tr>
-        <tr>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">EJ Company</td>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">egamovj90@gmail</td>
-            <td className="border-[1px] border-[#dddddd] p-2 text-left">Uzbekistan</td>
-        </tr>
+        {list.map((employee) => {        
+          return (
+            <tr key={employee.id}>
+              <td className="border-[1px] border-[#dddddd] p-2 text-left">
+                {`${employee.firstName} ${employee.lastName}`}
+              </td>
+              <td className="border-[1px] border-[#dddddd] p-2 text-left">
+                {employee.email}
+              </td>
+              <td className="border-[1px] border-[#dddddd] p-2 text-left">
+                Actions
+              </td>
+            </tr>
+          );
+        })}
       </table>
     </div>
   );

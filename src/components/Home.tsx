@@ -15,7 +15,7 @@ const Home = () => {
       </article>
       <section className="mx-[10%] mt-[15px]">
         <div>Content</div>
-        <EmployeeList />
+        <EmployeeList list={employeeList}/>
       </section>
     </>
   );
