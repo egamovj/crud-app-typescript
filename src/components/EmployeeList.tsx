@@ -12,6 +12,9 @@ const EmployeeList = (props: Props) => {
 
   return (
     <div>
+      <article className="text-center">
+        <h3 className="text-xl font-bold">Employee List</h3>
+      </article>
       <table className="border-collapse w-full">
         <tr>
           <th className="border-[1px] border-[#dddddd] p-2 text-left">
