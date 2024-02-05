@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import { IEmployee, userEmployeeList } from "./Employee.type";
+import EmployeeList from "./EmployeeList";
 
 const Home = () => {
   const [employeeList, setEmployeeList] = useState(userEmployeeList as IEmployee[]);
@@ -14,6 +15,7 @@ const Home = () => {
       </article>
       <section className="mx-[10%] mt-[15px]">
         <div>Content</div>
+        <EmployeeList />
       </section>
     </>
   );
