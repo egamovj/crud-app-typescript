@@ -40,7 +40,7 @@ const EmployeeList = (props: Props) => {
                 <div>
                     <input type="button" value="View" className="px-2 border-none rounded-lg bg-slate-500" />
                     <input type="button" value="Edit" className="px-2 border-none rounded-lg bg-green-500" />
-                    <input type="button" value="Delete" onClick={deleteHandler} className="px-2 border-none rounded-lg bg-red-500" />
+                    <input type="button" value="Delete" onClick={() => deleteHandler(employee)} className="px-2 border-none rounded-lg bg-red-500" />
                 </div>
               </td>
             </tr>
