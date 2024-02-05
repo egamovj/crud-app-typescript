@@ -46,12 +46,9 @@ const Home = () => {
               type="button"
               value="Add Employee"
               onClick={addEmployeeHandler}
-              className="px-2 bg-slate-400 rounded"
+              className="px-2 bg-slate-400 rounded float-right"
             />
             <EmployeeList list={employeeList} deleteHandler={deleteEmployee} />
-
-            <input type="button" value="Add Employee" onClick={addEmployeeHandler} className="px-2 bg-slate-400 rounded float-right mb-4"/>
-            <EmployeeList list={employeeList} />
 
           </>
         )}
