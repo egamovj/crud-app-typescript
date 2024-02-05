@@ -13,6 +13,14 @@ const Home = () => {
 
   const addEmployeeHandler = () => {
     setShownPage(PageEnum.add);
+  };
+
+  const showListPage = () => {
+    setShownPage(PageEnum.list)
+  };
+
+  const addEmployee = (data: IEmployee) => {
+    setEmployeeList([...employeeList, data])
   }
 
   return (
@@ -30,7 +38,7 @@ const Home = () => {
           </>
         )}
 
-        {shownPage === PageEnum.add && <AddEmployee/>}
+        {shownPage === PageEnum.add && <AddEmployee backBtnClickHandler={showListPage} submitHandler={addEmployee}/>}
       </section>
     </>
   );
