@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, ChangeEvent } from "react";
+import { useState} from "react";
 import { IEmployee } from "./Employee.type";
 
 type Props = {
@@ -14,19 +14,20 @@ const AddEmployee = (props: Props) => {
 
   const { backBtnClickHandler, submitHandler } = props;
 
-  const firstNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const firstNameHandler = (e: any) => {
     setFirstName(e.target.value);
   };
 
-  const lastNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const lastNameHandler = (e: any) => {
     setLastName(e.target.value);
   };
 
-  const emailHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const emailHandler = (e: any) => {
     setEmail(e.target.value);
   };
 
-  const submitBtnHandler = () => {
+  const submitBtnHandler = (e: any) => {
+    e.preventDefault();
     const data: IEmployee = {
         id: new Date().toJSON().toString(),
         firstName: firstName,
@@ -34,6 +35,7 @@ const AddEmployee = (props: Props) => {
         email: email,
     }
     submitHandler(data);
+    backBtnClickHandler()
 }
 
   return (
@@ -73,15 +75,8 @@ const AddEmployee = (props: Props) => {
           />
         </div>
         <div className="mt-2">
-          <button
-            onClick={backBtnClickHandler}
-            className="px-2 bg-[#30DCDC] rounded ml-[5px]"
-          >
-            Back
-          </button>
-          <button type="submit" className="px-2 bg-green-500 rounded ml-[5px]">
-            Add Employee
-          </button>
+          <input type="button" value="Back" onClick={backBtnClickHandler} className="px-2 bg-[#30DCDC] rounded ml-[5px]"/>
+          <input type="submit" value='Add Employee' className="px-2 bg-green-500 rounded ml-[5px]"></input>
         </div>
       </form>
     </div>
