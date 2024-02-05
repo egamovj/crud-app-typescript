@@ -12,4 +12,9 @@ export const userEmployeeList: IEmployee[] = [
         lastName: "Egamov",
         email: "egamovj90@gmail.com",
     },
-]
+];
+
+export enum PageEnum {
+    list,
+    add
+}   

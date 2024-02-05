@@ -1,10 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
-import { IEmployee, userEmployeeList } from "./Employee.type";
+import { IEmployee, PageEnum, userEmployeeList } from "./Employee.type";
 import EmployeeList from "./EmployeeList";
+import AddEmployee from "./AddEmployee";
 
 const Home = () => {
-  const [employeeList, setEmployeeList] = useState(userEmployeeList as IEmployee[]);
+  const [employeeList, setEmployeeList] = useState(
+    userEmployeeList as IEmployee[]
+  );
+
+  const [shownPage, setShownPage] = useState(PageEnum.list);
+
+  const addEmployeeHandler = () => {
+    setShownPage(PageEnum.add);
+  }
 
   return (
     <>
@@ -14,8 +23,14 @@ const Home = () => {
         </header>
       </article>
       <section className="mx-[10%] mt-[15px]">
-        <input type="button" value="Add Employee" />
-        <EmployeeList list={employeeList}/>
+        {shownPage === PageEnum.list && (
+          <>
+            <input type="button" value="Add Employee" onClick={addEmployeeHandler} className="px-2 bg-slate-400 rounded"/>
+            <EmployeeList list={employeeList} />
+          </>
+        )}
+
+        {shownPage === PageEnum.add && <AddEmployee/>}
       </section>
     </>
   );
