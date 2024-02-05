@@ -14,7 +14,7 @@ const Home = () => {
         </header>
       </article>
       <section className="mx-[10%] mt-[15px]">
-        <div>Content</div>
+        <input type="button" value="Add Employee" />
         <EmployeeList list={employeeList}/>
       </section>
     </>

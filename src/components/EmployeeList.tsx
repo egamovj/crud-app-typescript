@@ -9,7 +9,6 @@ const EmployeeList = (props: Props) => {
 
   return (
     <div>
-      EmployeeList page
       <table className="border-collapse w-full">
         <tr>
           <th className="border-[1px] border-[#dddddd] p-2 text-left">
@@ -32,7 +31,11 @@ const EmployeeList = (props: Props) => {
                 {employee.email}
               </td>
               <td className="border-[1px] border-[#dddddd] p-2 text-left">
-                Actions
+                <div>
+                    <input type="button" value="View" className="px-2 border-none rounded-lg bg-slate-500" />
+                    <input type="button" value="Edit" className="px-2 border-none rounded-lg bg-green-500" />
+                    <input type="button" value="Delete" className="px-2 border-none rounded-lg bg-red-500" />
+                </div>
               </td>
             </tr>
           );
