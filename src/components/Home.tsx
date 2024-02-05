@@ -38,6 +38,7 @@ const Home = () => {
       <section className="mx-[10%] mt-[15px]">
         {shownPage === PageEnum.list && (
           <>
+
             <input
               type="button"
               value="Add Employee"
@@ -45,6 +46,10 @@ const Home = () => {
               className="px-2 bg-slate-400 rounded"
             />
             <EmployeeList list={employeeList} deleteHandler={deleteEmployee} />
+
+            <input type="button" value="Add Employee" onClick={addEmployeeHandler} className="px-2 bg-slate-400 rounded float-right mb-4"/>
+            <EmployeeList list={employeeList} />
+
           </>
         )}
 
