@@ -16,11 +16,16 @@ const Home = () => {
   };
 
   const showListPage = () => {
-    setShownPage(PageEnum.list)
+    setShownPage(PageEnum.list);
   };
 
   const addEmployee = (data: IEmployee) => {
-    setEmployeeList([...employeeList, data])
+    setEmployeeList([...employeeList, data]);
+  };
+
+  const deleteEmployee = (data: IEmployee) => {
+    const indexToDelete = employeeList.indexOf(data);
+    const tempList = {...employeeList}
   }
 
   return (
@@ -33,12 +38,22 @@ const Home = () => {
       <section className="mx-[10%] mt-[15px]">
         {shownPage === PageEnum.list && (
           <>
-            <input type="button" value="Add Employee" onClick={addEmployeeHandler} className="px-2 bg-slate-400 rounded"/>
-            <EmployeeList list={employeeList} />
+            <input
+              type="button"
+              value="Add Employee"
+              onClick={addEmployeeHandler}
+              className="px-2 bg-slate-400 rounded"
+            />
+            <EmployeeList list={employeeList} deleteHandler={deleteEmployee} />
           </>
         )}
 
-        {shownPage === PageEnum.add && <AddEmployee backBtnClickHandler={showListPage} submitHandler={addEmployee}/>}
+        {shownPage === PageEnum.add && (
+          <AddEmployee
+            backBtnClickHandler={showListPage}
+            submitHandler={addEmployee}
+          />
+        )}
       </section>
     </>
   );
