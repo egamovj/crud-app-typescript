@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from "react";
 import { IEmployee } from "./Employee.type";
+import EmployeeModal from "./EmployeeModal";
 
 type Props = {
   list: IEmployee[];
@@ -7,6 +10,15 @@ type Props = {
 
 const EmployeeList = (props: Props) => {
   const { list, deleteHandler } = props;
+  const [showModal, setShowModal] = useState(false);
+  const [dataToShow, setDataToShow] = useState(null as IEmployee | null);
+
+  const viewEmployee = (data: IEmployee) => {
+    setDataToShow(data)
+    setShowModal(true);
+  };
+
+  const closeModal = () => setShowModal(false);
 
   return (
     <div>
@@ -41,6 +53,7 @@ const EmployeeList = (props: Props) => {
                       type="button"
                       value="View"
                       className="px-5 py-2 border-none rounded-xl bg-[#489CE2]"
+                      onClick={() => viewEmployee(employee)}
                     />
                     <input
                       type="button"
@@ -60,6 +73,7 @@ const EmployeeList = (props: Props) => {
           })}
         </tbody>
       </table>
+      {showModal && dataToShow !== null && ( <EmployeeModal closeBtn={closeModal} data={dataToShow} />)}
     </div>
   );
 };
