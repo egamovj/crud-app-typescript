@@ -53,20 +53,20 @@ const EmployeeList = (props: Props) => {
                     <input
                       type="button"
                       value="View"
-                      className="px-5 py-2 border-none rounded-xl bg-[#489CE2]"
+                      className="px-5 py-2 border-none bg-[#489CE2]text-[18px] font-mono bg-gradient-to-tr from-indigo-500 to-purple-400 hover:from-indigo-600 hover:to-purple-500 active:from-indigo-700 active:to-purple-600 focus-visible:ring ring-indigo-300 text-white font-semibold text-center rounded-md outline-none transition duration-100"
                       onClick={() => viewEmployee(employee)}
                     />
                     <input
                       type="button"
                       value="Edit"
                       onClick={() => onEdit(employee)}
-                      className="px-5 py-2 border-none rounded-xl bg-green-500"
+                      className="px-5 py-2 border-none text-[18px] font-mono bg-green-500 hover:bg-green-600 active:bg-green-700 focus-visible:ring ring-green-300 text-white font-semibold text-center rounded-md outline-none transition duration-100"
                     />
                     <input
                       type="button"
                       value="Delete"
                       onClick={() => deleteHandler(employee)}
-                      className="px-5 py-2 border-none rounded-xl bg-red-500"
+                      className="px-5 py-2 border-none bg-gradient-to-tr from-pink-500 to-red-400 hover:from-pink-600 hover:to-red-500 active:from-pink-700 active:to-red-600 focus-visible:ring ring-pink-300 text-white font-semibold text-center rounded-md outline-none transition duration-100 font-mono"
                     />
                   </div>
                 </td>

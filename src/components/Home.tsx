@@ -69,7 +69,7 @@ const Home = () => {
               type="button"
               value="Add Employee"
               onClick={addEmployeeHandler}
-              className="px-2 bg-[#007bffcf] rounded float-right"
+              className="px-5 py-1 bg-[#007bffcf] float-right text-white text-[18px] bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300  font-semibold text-center rounded-md outline-none transition duration-100"
             />
             <EmployeeList
               list={employeeList}
