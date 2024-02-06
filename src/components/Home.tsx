@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
-import { IEmployee, PageEnum, userEmployeeList } from "./Employee.type";
+import { useEffect, useState } from "react";
+import { IEmployee, PageEnum } from "./Employee.type";
 import EmployeeList from "./EmployeeList";
 import AddEmployee from "./AddEmployee";
 import EditEmployee from "./EditEmployee";
 
 const Home = () => {
-  const [employeeList, setEmployeeList] = useState(
-    userEmployeeList as IEmployee[]
-  );
-
+  const [employeeList, setEmployeeList] = useState([] as IEmployee[]);
   const [shownPage, setShownPage] = useState(PageEnum.list);
   const [dataToEdit, setDataToEdit] = useState({} as IEmployee);
+
+  useEffect(() => {},[])
 
   const addEmployeeHandler = () => {
     setShownPage(PageEnum.add);
@@ -21,8 +20,13 @@ const Home = () => {
     setShownPage(PageEnum.list);
   };
 
+  const _setEmployeeList = (list: IEmployee[]) => {
+    setEmployeeList(list);
+    window.localStorage.setItem("EmployeeList", JSON.stringify(list))
+  }
+
   const addEmployee = (data: IEmployee) => {
-    setEmployeeList([...employeeList, data]);
+    _setEmployeeList([...employeeList, data]);
   };
 
   const deleteEmployee = (data: IEmployee) => {
@@ -30,7 +34,7 @@ const Home = () => {
     const tempList = [...employeeList];
 
     tempList.splice(indexToDelete, 1);
-    setEmployeeList(tempList);
+    _setEmployeeList(tempList);
   };
 
   const editEmployee = (data: IEmployee) => {
@@ -40,10 +44,10 @@ const Home = () => {
 
   const updateData = (data: IEmployee) => {
     const filteredData = employeeList.filter((x) => x.id === data.id)[0];
-    const indexOfRecord =  employeeList.indexOf(filteredData);
+    const indexOfRecord = employeeList.indexOf(filteredData);
     const tempData = [...employeeList];
     tempData[indexOfRecord] = data;
-    setEmployeeList(tempData);
+    _setEmployeeList(tempData);
   };
 
   return (
@@ -60,7 +64,7 @@ const Home = () => {
               type="button"
               value="Add Employee"
               onClick={addEmployeeHandler}
-              className="px-2 bg-slate-400 rounded float-right"
+              className="px-2 bg-[#007bffcf] rounded float-right"
             />
             <EmployeeList
               list={employeeList}
