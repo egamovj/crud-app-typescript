@@ -6,10 +6,11 @@ import EmployeeModal from "./EmployeeModal";
 type Props = {
   list: IEmployee[];
   deleteHandler: (data: IEmployee) => void;
+  onEdit: (data: IEmployee) => void;
 };
 
 const EmployeeList = (props: Props) => {
-  const { list, deleteHandler } = props;
+  const { list, deleteHandler, onEdit } = props;
   const [showModal, setShowModal] = useState(false);
   const [dataToShow, setDataToShow] = useState(null as IEmployee | null);
 
@@ -58,6 +59,7 @@ const EmployeeList = (props: Props) => {
                     <input
                       type="button"
                       value="Edit"
+                      onClick={() => onEdit(employee)}
                       className="px-5 py-2 border-none rounded-xl bg-green-500"
                     />
                     <input

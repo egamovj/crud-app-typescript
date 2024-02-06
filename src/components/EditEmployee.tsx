@@ -1,19 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import { IEmployee } from "./Employee.type";
 
 type Props = {
+  data: IEmployee;
   backBtnClickHandler: () => void;
-  submitHandler: (data: IEmployee) => void;
+  onUpdateHandler: (data: IEmployee) => void;
 };
 
-const AddEmployee = (props: Props) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+const EditEmployee = (props: Props) => {
+  const { data, backBtnClickHandler, onUpdateHandler } = props;
 
-  const { backBtnClickHandler, submitHandler } = props;
+  const [firstName, setFirstName] = useState(data.firstName);
+  const [lastName, setLastName] = useState(data.lastName);
+  const [email, setEmail] = useState(data.email);
 
   const firstNameHandler = (e: any) => {
     setFirstName(e.target.value);
@@ -29,13 +28,13 @@ const AddEmployee = (props: Props) => {
 
   const submitBtnHandler = (e: any) => {
     e.preventDefault();
-    const data: IEmployee = {
-      id: new Date().toJSON().toString(),
+    const updatedData: IEmployee = {
+      id: data.id,
       firstName: firstName,
       lastName: lastName,
       email: email,
     };
-    submitHandler(data);
+    onUpdateHandler(updatedData);
     backBtnClickHandler();
   };
 
@@ -84,7 +83,7 @@ const AddEmployee = (props: Props) => {
           />
           <input
             type="submit"
-            value="Add Employee"
+            value="Update Employee"
             className="px-2 bg-green-500 rounded ml-[5px]"
           ></input>
         </div>
@@ -93,4 +92,4 @@ const AddEmployee = (props: Props) => {
   );
 };
 
-export default AddEmployee;
+export default EditEmployee;
