@@ -50,7 +50,7 @@ const AddEmployee = (props: Props) => {
           <input
             type="text"
             placeholder="First Name"
-            className="border h-5 pl-[15px] m-[5px]"
+            className="border h-9 w-72 pl-[15px] m-[5px]"
             value={firstName}
             onChange={firstNameHandler}
           />
@@ -60,7 +60,7 @@ const AddEmployee = (props: Props) => {
           <input
             type="text"
             placeholder="Last Name"
-            className="border h-5 pl-[15px] m-[5px]"
+            className="border h-9 w-72 pl-[15px] m-[5px]"
             value={lastName}
             onChange={lastNameHandler}
           />
@@ -70,22 +70,22 @@ const AddEmployee = (props: Props) => {
           <input
             type="text"
             placeholder="Email"
-            className="border h-5 pl-[15px] m-[5px]"
+            className="border h-9 w-72 pl-[15px] m-[5px] focus:ring-blue-500 focus:border-blue-500 "
             value={email}
             onChange={emailHandler}
           />
         </div>
-        <div className="mt-2">
+        <div className="mt-2 flex justify-center items-center gap-3">
           <input
             type="button"
             value="Back"
             onClick={backBtnClickHandler}
-            className="px-2 bg-[#30DCDC] rounded ml-[5px]"
+            className="text-white text-[18px] bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2 text-center  "
           />
           <input
             type="submit"
             value="Add Employee"
-            className="px-2 bg-green-500 rounded ml-[5px]"
+            className="ml-[5px] px-5 py-1 bg-[#007bffcf] float-right text-white text-[18px] bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300  font-semibold text-center rounded-md outline-none transition duration-100"
           ></input>
         </div>
       </form>
