@@ -46,7 +46,7 @@ const AddEmployee = (props: Props) => {
       </div>
       <form onSubmit={submitBtnHandler}>
         <div>
-          <label>First Name : </label>
+          <label className="font-mono font-semibold text-[18px]">First Name : </label>
           <input
             type="text"
             placeholder="First Name"
@@ -56,7 +56,7 @@ const AddEmployee = (props: Props) => {
           />
         </div>
         <div>
-          <label>Last Name : </label>
+          <label className="font-mono font-semibold text-[18px]">Last Name : </label>
           <input
             type="text"
             placeholder="Last Name"
@@ -66,7 +66,7 @@ const AddEmployee = (props: Props) => {
           />
         </div>
         <div>
-          <label>Email Add : </label>
+          <label className="font-mono font-semibold text-[18px]">Email Add : </label>
           <input
             type="text"
             placeholder="Email"
