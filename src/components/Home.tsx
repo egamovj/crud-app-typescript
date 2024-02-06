@@ -10,7 +10,12 @@ const Home = () => {
   const [shownPage, setShownPage] = useState(PageEnum.list);
   const [dataToEdit, setDataToEdit] = useState({} as IEmployee);
 
-  useEffect(() => {},[])
+  useEffect(() => {
+    const listInString =  window.localStorage.getItem("EmployeeList");
+    if (listInString) {
+      _setEmployeeList(JSON.parse(listInString))
+    }
+  },[])
 
   const addEmployeeHandler = () => {
     setShownPage(PageEnum.add);
