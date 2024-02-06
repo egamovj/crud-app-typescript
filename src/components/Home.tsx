@@ -41,7 +41,7 @@ const Home = () => {
   const updateData = (data: IEmployee) => {
     const filteredData = employeeList.filter((x) => x.id === data.id)[0];
     const indexOfRecord =  employeeList.indexOf(filteredData);
-    const tempData ={...employeeList};
+    const tempData = [...employeeList];
     tempData[indexOfRecord] = data;
     setEmployeeList(tempData);
   };
